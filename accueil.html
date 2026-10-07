@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accueil — NOCLIP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="accueil.html">NOCLIP</a>
+    <span class="tag">La réalité s'arrête ici</span>
+  </header>
+
+  <main class="card">
+    <div class="art" aria-hidden="true"></div>
+
+    <div class="content">
+      <p class="eyebrow">Aventure à choix multiples</p>
+      <h1 class="home-title">NOCLIP</h1>
+
+      <p>
+        Une seconde plus tôt, vous marchiez dans un couloir ordinaire.
+        Puis le sol a cédé sans se briser.
+        Vous êtes tombé à travers la réalité.
+      </p>
+
+      <p>
+        Maintenant, il ne reste que des murs jaunes,
+        une moquette humide et le bourdonnement des néons.
+        Votre téléphone n'affiche aucun réseau.
+        <strong>Quelque part, il doit exister une sortie.</strong>
+      </p>
+
+      <p class="note">
+        Observez les lieux et retenez les indices.
+        Certaines décisions vous rapprocheront de chez vous.
+        D'autres vous feront disparaître.
+      </p>
+
+      <nav class="choices" aria-label="Menu principal">
+        <a
+          id="commencer"
+          class="choice primary"
+          href="pages/niveau-0.html"
+        >
+          <span aria-hidden="true">🚪</span>
+          Commencer l'aventure
+        </a>
+
+        <a class="choice" href="arbre-navigation.html">
+          <span aria-hidden="true">🗺️</span>
+          Voir la carte des chemins — attention aux révélations
+        </a>
+      </nav>
+
+      <p class="small-text">
+        Une fiction inspirée des Backrooms.
+        Quatre fins à découvrir.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    if (window.parent === window) {
+      // Si le menu est ouvert directement, charger la page principale.
+      window.location.replace("index.html");
+    } else {
+      // Toute arrivée sur le menu arrête la musique.
+      window.parent.postMessage("noclip:menu", "*");
+
+      const commencer = document.getElementById("commencer");
+
+      commencer.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // index.html lance le son puis affiche le premier niveau.
+        window.parent.postMessage("noclip:commencer", "*");
+      });
+    }
+  </script>
+</body>
+</html>

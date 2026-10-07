@@ -1,5 +1,10 @@
-/* Couleurs communes */
+/* ========================================
+   Couleurs et réglages communs
+   ======================================== */
+
 :root {
+  color-scheme: dark;
+
   --background: #11120f;
   --surface: #1b1d18;
   --text: #f2eedf;
@@ -12,10 +17,6 @@
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  color-scheme: dark;
 }
 
 body {
@@ -38,14 +39,47 @@ a:focus-visible {
   outline-offset: 5px;
 }
 
-/* En-tête */
+[hidden] {
+  display: none !important;
+}
+
+/* ========================================
+   Page principale et cadre du jeu
+   ======================================== */
+
+body.player {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.player-main {
+  width: 100%;
+  height: 100%;
+}
+
+.cadre-jeu {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ========================================
+   En-tête des scènes
+   ======================================== */
+
 .site-header {
-  width: min(860px, 100%);
-  margin: 0 auto 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+
+  width: min(860px, 100%);
+  margin: 0 auto 24px;
 }
 
 .brand {
@@ -75,7 +109,10 @@ a:focus-visible {
   color: var(--accent);
 }
 
-/* Carte principale */
+/* ========================================
+   Contenu des pages
+   ======================================== */
+
 .card {
   width: min(860px, 100%);
   margin: auto;
@@ -125,32 +162,43 @@ strong {
   font-style: italic;
 }
 
-.question {
-  margin-top: 28px;
-  color: var(--text);
+.small-text {
+  margin-top: 24px;
+  font-size: 0.8rem;
+}
+
+.ending {
+  color: var(--accent);
   font-weight: bold;
 }
 
-/* Liens transformés en boutons */
+/* ========================================
+   Boutons de choix
+   ======================================== */
+
 .choices {
   display: grid;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .choice {
   display: flex;
   align-items: center;
   gap: 14px;
+
   min-height: 58px;
   padding: 17px 20px;
+
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #ffffff05;
+
   color: var(--text);
   font-weight: bold;
   line-height: 1.5;
   text-decoration: none;
+
   transition:
     background 0.2s,
     border-color 0.2s,
@@ -170,8 +218,8 @@ strong {
 }
 
 .choice.primary:hover {
-  background: var(--text);
   border-color: var(--text);
+  background: var(--text);
 }
 
 .choice span[aria-hidden="true"] {
@@ -180,22 +228,16 @@ strong {
   text-align: center;
 }
 
-.small-text {
-  margin-top: 24px;
-  font-size: 0.8rem;
-}
+/* ========================================
+   Décor de couloir
+   ======================================== */
 
-.ending {
-  color: var(--accent);
-  font-weight: bold;
-}
-
-/* Décor : un couloir dessiné uniquement en CSS */
 .art {
   position: relative;
   height: 205px;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
+
   background:
     linear-gradient(
       180deg,
@@ -203,6 +245,7 @@ strong {
       var(--wall) 16% 73%,
       var(--floor) 73% 100%
     );
+
   box-shadow: inset 0 0 100px #0009;
 }
 
@@ -213,9 +256,11 @@ strong {
   bottom: 0;
   width: 26%;
   height: 76%;
+
   border: 14px solid var(--wall);
   border-bottom: 0;
   background: linear-gradient(#11130d, #343722);
+
   box-shadow:
     -100px 0 0 -35px #0003,
     100px 0 0 -35px #0003;
@@ -228,11 +273,15 @@ strong {
   left: 36%;
   width: 28%;
   height: 7px;
+
   background: #fff5c5;
   box-shadow: 0 0 35px 8px var(--accent);
 }
 
-/* Variations des lieux */
+/* ========================================
+   Couleurs propres aux lieux
+   ======================================== */
+
 .theme-concrete {
   --wall: #555e57;
   --floor: #303933;
@@ -269,6 +318,58 @@ strong {
   --accent: #a0e5e0;
 }
 
+.theme-dark {
+  --wall: #171920;
+  --floor: #090b10;
+  --accent: #c7cbd8;
+}
+
+.theme-ocean {
+  --wall: #143c51;
+  --floor: #081d2e;
+  --accent: #8acfe4;
+}
+
+.theme-night {
+  --wall: #34374b;
+  --floor: #171a26;
+  --accent: #c6c8ed;
+}
+
+.theme-void {
+  --wall: #272033;
+  --floor: #100d18;
+  --accent: #c9afe9;
+}
+
+.theme-fog {
+  --wall: #606c62;
+  --floor: #39483c;
+  --accent: #d4e8c5;
+}
+
+.theme-danger {
+  --wall: #532e35;
+  --floor: #28161d;
+  --accent: #f0a9ab;
+}
+
+.theme-dawn {
+  --wall: #57765e;
+  --floor: #283e32;
+  --accent: #d5edb5;
+}
+
+.theme-wrong {
+  --wall: #625775;
+  --floor: #322b40;
+  --accent: #dac5f1;
+}
+
+/* ========================================
+   Décors particuliers
+   ======================================== */
+
 .theme-pool .art {
   background:
     linear-gradient(transparent 62%, #157b8bb3 62%),
@@ -284,25 +385,8 @@ strong {
     );
 }
 
-.theme-dark {
-  --wall: #171920;
-  --floor: #090b10;
-  --accent: #c7cbd8;
-}
-
 .theme-dark .art {
   background: #030405;
-}
-
-.theme-dark .art::before,
-.theme-dark .art::after {
-  display: none;
-}
-
-.theme-ocean {
-  --wall: #143c51;
-  --floor: #081d2e;
-  --accent: #8acfe4;
 }
 
 .theme-ocean .art {
@@ -315,17 +399,6 @@ strong {
     linear-gradient(#101f28 0 43%, #3e788b 44%, #061e32 100%);
 }
 
-.theme-ocean .art::before,
-.theme-ocean .art::after {
-  display: none;
-}
-
-.theme-night {
-  --wall: #34374b;
-  --floor: #171a26;
-  --accent: #c6c8ed;
-}
-
 .theme-night .art {
   background: linear-gradient(#121625, #363b50);
 }
@@ -336,7 +409,15 @@ strong {
   height: 85%;
   border: 0;
   background: #11131a;
-  clip-path: polygon(50% 0, 100% 40%, 88% 40%, 88% 100%, 12% 100%, 12% 40%, 0 40%);
+  clip-path: polygon(
+    50% 0,
+    100% 40%,
+    88% 40%,
+    88% 100%,
+    12% 100%,
+    12% 40%,
+    0 40%
+  );
 }
 
 .theme-night .art::after {
@@ -348,12 +429,6 @@ strong {
   box-shadow: 0 0 30px #e8c56a88;
 }
 
-.theme-void {
-  --wall: #272033;
-  --floor: #100d18;
-  --accent: #c9afe9;
-}
-
 .theme-void .art {
   background:
     radial-gradient(circle at 30% 40%, #e1c9ff 0 2px, transparent 3px),
@@ -362,36 +437,8 @@ strong {
     #08060e;
 }
 
-.theme-void .art::before,
-.theme-void .art::after {
-  display: none;
-}
-
-.theme-fog {
-  --wall: #606c62;
-  --floor: #39483c;
-  --accent: #d4e8c5;
-}
-
 .theme-fog .art {
   background: linear-gradient(#a7b6a5, #e0e6d6 60%, #657f69);
-}
-
-.theme-fog .art::before,
-.theme-fog .art::after {
-  display: none;
-}
-
-.theme-danger {
-  --wall: #532e35;
-  --floor: #28161d;
-  --accent: #f0a9ab;
-}
-
-.theme-dawn {
-  --wall: #57765e;
-  --floor: #283e32;
-  --accent: #d5edb5;
 }
 
 .theme-dawn .art {
@@ -400,18 +447,23 @@ strong {
     linear-gradient(#879f9c, #c3c7a5 65%, #4e7251 66%);
 }
 
+.theme-dark .art::before,
+.theme-dark .art::after,
+.theme-ocean .art::before,
+.theme-ocean .art::after,
+.theme-void .art::before,
+.theme-void .art::after,
+.theme-fog .art::before,
+.theme-fog .art::after,
 .theme-dawn .art::before,
 .theme-dawn .art::after {
   display: none;
 }
 
-.theme-wrong {
-  --wall: #625775;
-  --floor: #322b40;
-  --accent: #dac5f1;
-}
+/* ========================================
+   Arbre de navigation
+   ======================================== */
 
-/* Document de navigation */
 .map-card {
   width: min(1120px, 100%);
   margin: auto;
@@ -430,7 +482,10 @@ strong {
   white-space: pre;
 }
 
-/* Petite animation, désactivée si l'utilisateur le préfère */
+/* ========================================
+   Animation et adaptation aux écrans
+   ======================================== */
+
 @keyframes arrive {
   from {
     opacity: 0;
@@ -453,7 +508,6 @@ strong {
   }
 }
 
-/* Téléphones */
 @media (max-width: 600px) {
   body {
     padding: 18px 12px 32px;
@@ -485,14 +539,17 @@ strong {
   }
 }
 
-/* Export PDF de l'arbre */
+/* ========================================
+   Impression de l'arbre en PDF
+   ======================================== */
+
 @page {
   size: A4 landscape;
   margin: 12mm;
 }
 
 @media print {
-  html {
+  :root {
     color-scheme: light;
   }
 
@@ -536,27 +593,4 @@ strong {
     line-height: 1.4;
     break-inside: avoid;
   }
-}
-
-.cadre-jeu {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  display: block;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  border: 0;
-  background: var(--background);
-}
-
-/* Respecter le masquage de l'écran et du cadre */
-#ecran-accueil[hidden],
-.cadre-jeu[hidden],
-#ambiance {
-  display: none;
-}
-
-body.jeu-ouvert {
-  overflow: hidden;
 }

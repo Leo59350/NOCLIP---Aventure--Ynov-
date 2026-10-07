@@ -3,110 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NOCLIP — Une aventure dans les Backrooms</title>
+  <title>NOCLIP — Aventure dans les Backrooms</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Ce lecteur reste chargé pendant toute la partie. -->
-  <audio id="ambiance" autoplay loop hidden>
+
+<body class="player">
+  <!-- Un seul lecteur audio pour tout le site. -->
+  <audio id="ambiance" loop preload="none" hidden>
     <source src="assets/sounds/feldup.mp3" type="audio/mpeg">
   </audio>
 
-  <div id="ecran-accueil">
-    <header class="site-header">
-      <a class="brand" href="index.html">NOCLIP</a>
-      <span class="tag">La réalité s'arrête ici</span>
-    </header>
-
-    <main class="card">
-      <div class="art" aria-hidden="true"></div>
-
-      <div class="content">
-        <p class="eyebrow">Aventure à choix multiples</p>
-        <h1 class="home-title">NOCLIP</h1>
-
-        <p>
-          Une seconde plus tôt, vous marchiez dans un couloir ordinaire.
-          Puis le sol a cédé sans se briser.
-          Vous êtes tombé à travers la réalité.
-        </p>
-
-        <p>
-          Maintenant, il ne reste que des murs jaunes,
-          une moquette humide et le bourdonnement des néons.
-          <strong>Quelque part, il doit exister une sortie.</strong>
-        </p>
-
-        <p class="note">
-          Observez les lieux et retenez les indices.
-          Certaines décisions vous rapprocheront de chez vous.
-          D'autres vous feront disparaître.
-        </p>
-
-        <nav class="choices" aria-label="Menu principal">
-          <a
-            id="commencer"
-            class="choice primary"
-            href="pages/niveau-0.html"
-          >
-            <span aria-hidden="true">🚪</span>
-            Commencer l'aventure
-          </a>
-
-          <a
-            id="ouvrir-carte"
-            class="choice"
-            href="arbre-navigation.html"
-          >
-            <span aria-hidden="true">🗺️</span>
-            Voir la carte des chemins
-          </a>
-        </nav>
-
-        <p class="small-text">
-          Une fiction inspirée des Backrooms.
-          Quatre fins à découvrir.
-        </p>
-      </div>
-    </main>
-  </div>
-
-  <!-- Seul le contenu de ce cadre change pendant la navigation. -->
-  <iframe
-    id="cadre-jeu"
-    class="cadre-jeu"
-    title="Aventure NOCLIP"
-    hidden
-  ></iframe>
+  <main class="player-main">
+    <iframe
+      id="cadre-jeu"
+      class="cadre-jeu"
+      title="Aventure NOCLIP"
+    ></iframe>
+  </main>
 
   <script>
-    const ambiance = document.getElementById("ambiance");
-    const accueil = document.getElementById("ecran-accueil");
-    const cadre = document.getElementById("cadre-jeu");
+    // Éviter de charger un deuxième lecteur si un ancien lien
+    // ouvre accidentellement index.html dans le cadre.
+    if (window.parent !== window) {
+      window.location.replace("accueil.html");
+    } else {
+      const ambiance = document.getElementById("ambiance");
+      const cadre = document.getElementById("cadre-jeu");
 
-    ambiance.volume = 0.25;
+      ambiance.volume = 0.25;
 
-    function ouvrirJeu(event) {
-      event.preventDefault();
+      function arreterMusique() {
+        ambiance.pause();
+        ambiance.currentTime = 0;
+      }
 
-      // Le clic permet au navigateur d'autoriser le son.
-      ambiance.play().catch(() => {
-        console.info("Le navigateur n'a pas pu lancer le son.");
+      function commencerAventure() {
+        ambiance.currentTime = 0;
+
+        ambiance.play().catch((erreur) => {
+          console.error(
+            "Lecture impossible : vérifie assets/sounds/feldup.mp3.",
+            erreur
+          );
+        });
+
+        cadre.src = "pages/niveau-0.html";
+      }
+
+      // Accepter uniquement les messages de notre cadre.
+      window.addEventListener("message", (event) => {
+        if (event.source !== cadre.contentWindow) {
+          return;
+        }
+
+        if (event.data === "noclip:menu") {
+          arreterMusique();
+        }
+
+        if (event.data === "noclip:commencer") {
+          commencerAventure();
+        }
       });
 
-      cadre.src = event.currentTarget.href;
-      accueil.hidden = true;
-      cadre.hidden = false;
-
-      document.body.classList.add("jeu-ouvert");
-      cadre.focus();
+      // Charger le menu après avoir installé les commandes.
+      cadre.src = "accueil.html";
     }
-
-    document.getElementById("commencer")
-      .addEventListener("click", ouvrirJeu);
-
-    document.getElementById("ouvrir-carte")
-      .addEventListener("click", ouvrirJeu);
   </script>
 </body>
 </html>

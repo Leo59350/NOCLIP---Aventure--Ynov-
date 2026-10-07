@@ -36,7 +36,8 @@ pour jouer à cette version.
 - `index.html` : accueil.
 - `style.css` : styles communs.
 - `pages/` : scènes et fins de l'aventure.
-- `assets/images/` : dossier réservé à d'éventuelles images.
+- `assets/images/C : dossier réservé à d'éventuelles images.
+- `acceuil.html` : le deuxiême accueil
 - `arbre-navigation.html` : carte des chemins, imprimable.
 - `arbre-navigation.pdf` : version PDF de cette carte.
 
