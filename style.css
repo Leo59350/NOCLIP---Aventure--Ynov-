@@ -1,0 +1,562 @@
+/* Couleurs communes */
+:root {
+  --background: #11120f;
+  --surface: #1b1d18;
+  --text: #f2eedf;
+  --muted: #b9b8a7;
+  --accent: #e4cf78;
+  --wall: #77703c;
+  --floor: #3e3925;
+  --border: #ffffff24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 28px 20px 48px;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(ellipse at top, var(--wall), transparent 65%),
+    var(--background);
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+/* En-tête */
+.site-header {
+  width: min(860px, 100%);
+  margin: 0 auto 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+}
+
+.tag,
+.eyebrow {
+  font-family: monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tag {
+  color: var(--muted);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+}
+
+/* Carte principale */
+.card {
+  width: min(860px, 100%);
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 25px 80px #0007;
+  animation: arrive 0.5s ease-out;
+}
+
+.content {
+  padding: 36px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: normal;
+  line-height: 1.08;
+}
+
+.home-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+}
+
+p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+strong {
+  color: var(--text);
+}
+
+.note {
+  margin: 26px 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent);
+  background: #ffffff06;
+  font-style: italic;
+}
+
+.question {
+  margin-top: 28px;
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* Liens transformés en boutons */
+.choices {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 17px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff05;
+  color: var(--text);
+  font-weight: bold;
+  line-height: 1.5;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.choice:hover {
+  transform: translateX(4px);
+  border-color: var(--accent);
+  background: #ffffff10;
+}
+
+.choice.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #171913;
+}
+
+.choice.primary:hover {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.choice span[aria-hidden="true"] {
+  flex-shrink: 0;
+  width: 26px;
+  text-align: center;
+}
+
+.small-text {
+  margin-top: 24px;
+  font-size: 0.8rem;
+}
+
+.ending {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Décor : un couloir dessiné uniquement en CSS */
+.art {
+  position: relative;
+  height: 205px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(
+      180deg,
+      #20221a 0 16%,
+      var(--wall) 16% 73%,
+      var(--floor) 73% 100%
+    );
+  box-shadow: inset 0 0 100px #0009;
+}
+
+.art::before {
+  content: "";
+  position: absolute;
+  left: 37%;
+  bottom: 0;
+  width: 26%;
+  height: 76%;
+  border: 14px solid var(--wall);
+  border-bottom: 0;
+  background: linear-gradient(#11130d, #343722);
+  box-shadow:
+    -100px 0 0 -35px #0003,
+    100px 0 0 -35px #0003;
+}
+
+.art::after {
+  content: "";
+  position: absolute;
+  top: 11%;
+  left: 36%;
+  width: 28%;
+  height: 7px;
+  background: #fff5c5;
+  box-shadow: 0 0 35px 8px var(--accent);
+}
+
+/* Variations des lieux */
+.theme-concrete {
+  --wall: #555e57;
+  --floor: #303933;
+  --accent: #b9d0b1;
+}
+
+.theme-pipes {
+  --wall: #725239;
+  --floor: #392a23;
+  --accent: #eeb977;
+}
+
+.theme-electric {
+  --wall: #394849;
+  --floor: #222c2d;
+  --accent: #a5dcdf;
+}
+
+.theme-office {
+  --wall: #586263;
+  --floor: #323b3d;
+  --accent: #c7d9cd;
+}
+
+.theme-hotel {
+  --wall: #783d37;
+  --floor: #3e2221;
+  --accent: #e2b277;
+}
+
+.theme-pool {
+  --wall: #416b70;
+  --floor: #184950;
+  --accent: #a0e5e0;
+}
+
+.theme-pool .art {
+  background:
+    linear-gradient(transparent 62%, #157b8bb3 62%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 28px,
+      #163d4933 28px 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #b9d4cf 0 28px,
+      #759c9b 28px 30px
+    );
+}
+
+.theme-dark {
+  --wall: #171920;
+  --floor: #090b10;
+  --accent: #c7cbd8;
+}
+
+.theme-dark .art {
+  background: #030405;
+}
+
+.theme-dark .art::before,
+.theme-dark .art::after {
+  display: none;
+}
+
+.theme-ocean {
+  --wall: #143c51;
+  --floor: #081d2e;
+  --accent: #8acfe4;
+}
+
+.theme-ocean .art {
+  background:
+    repeating-linear-gradient(
+      178deg,
+      transparent 0 14px,
+      #a2dfe010 15px 17px
+    ),
+    linear-gradient(#101f28 0 43%, #3e788b 44%, #061e32 100%);
+}
+
+.theme-ocean .art::before,
+.theme-ocean .art::after {
+  display: none;
+}
+
+.theme-night {
+  --wall: #34374b;
+  --floor: #171a26;
+  --accent: #c6c8ed;
+}
+
+.theme-night .art {
+  background: linear-gradient(#121625, #363b50);
+}
+
+.theme-night .art::before {
+  left: 32%;
+  width: 36%;
+  height: 85%;
+  border: 0;
+  background: #11131a;
+  clip-path: polygon(50% 0, 100% 40%, 88% 40%, 88% 100%, 12% 100%, 12% 40%, 0 40%);
+}
+
+.theme-night .art::after {
+  top: 60%;
+  left: 45%;
+  width: 10%;
+  height: 23px;
+  background: #f2cb7f;
+  box-shadow: 0 0 30px #e8c56a88;
+}
+
+.theme-void {
+  --wall: #272033;
+  --floor: #100d18;
+  --accent: #c9afe9;
+}
+
+.theme-void .art {
+  background:
+    radial-gradient(circle at 30% 40%, #e1c9ff 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 30%, #e1c9ff 0 2px, transparent 3px),
+    radial-gradient(circle at 75% 60%, #e1c9ff 0 2px, transparent 3px),
+    #08060e;
+}
+
+.theme-void .art::before,
+.theme-void .art::after {
+  display: none;
+}
+
+.theme-fog {
+  --wall: #606c62;
+  --floor: #39483c;
+  --accent: #d4e8c5;
+}
+
+.theme-fog .art {
+  background: linear-gradient(#a7b6a5, #e0e6d6 60%, #657f69);
+}
+
+.theme-fog .art::before,
+.theme-fog .art::after {
+  display: none;
+}
+
+.theme-danger {
+  --wall: #532e35;
+  --floor: #28161d;
+  --accent: #f0a9ab;
+}
+
+.theme-dawn {
+  --wall: #57765e;
+  --floor: #283e32;
+  --accent: #d5edb5;
+}
+
+.theme-dawn .art {
+  background:
+    radial-gradient(circle at 70% 32%, #fff6ca 0 25px, transparent 26px),
+    linear-gradient(#879f9c, #c3c7a5 65%, #4e7251 66%);
+}
+
+.theme-dawn .art::before,
+.theme-dawn .art::after {
+  display: none;
+}
+
+.theme-wrong {
+  --wall: #625775;
+  --floor: #322b40;
+  --accent: #dac5f1;
+}
+
+/* Document de navigation */
+.map-card {
+  width: min(1120px, 100%);
+  margin: auto;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.tree {
+  overflow-x: auto;
+  padding: 20px;
+  border: 1px solid var(--border);
+  background: #0003;
+  font: 12px/1.8 Consolas, monospace;
+  white-space: pre;
+}
+
+/* Petite animation, désactivée si l'utilisateur le préfère */
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+
+  .choice {
+    transition: none;
+  }
+}
+
+/* Téléphones */
+@media (max-width: 600px) {
+  body {
+    padding: 18px 12px 32px;
+  }
+
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .tag {
+    max-width: 160px;
+    text-align: right;
+  }
+
+  .content {
+    padding: 26px 22px;
+  }
+
+  .art {
+    height: 155px;
+  }
+
+  .choice {
+    padding: 15px;
+  }
+
+  .map-card {
+    padding: 18px;
+  }
+}
+
+/* Export PDF de l'arbre */
+@page {
+  size: A4 landscape;
+  margin: 12mm;
+}
+
+@media print {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
+  .site-header,
+  .print-hide {
+    display: none;
+  }
+
+  .map-card {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: white;
+  }
+
+  .map-card h1 {
+    margin-bottom: 12px;
+    font-size: 24px;
+  }
+
+  .map-card p {
+    margin-bottom: 10px;
+    color: black;
+    font-size: 10px;
+  }
+
+  .tree {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    background: white;
+    color: black;
+    font-size: 10px;
+    line-height: 1.4;
+    break-inside: avoid;
+  }
+}
+
+.cadre-jeu {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  border: 0;
+  background: var(--background);
+}
+
+/* Respecter le masquage de l'écran et du cadre */
+#ecran-accueil[hidden],
+.cadre-jeu[hidden],
+#ambiance {
+  display: none;
+}
+
+body.jeu-ouvert {
+  overflow: hidden;
+}

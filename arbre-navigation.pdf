@@ -1,0 +1,94 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Resources << /Font << /H 4 0 R /C 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 2510 >>
+stream
+BT /H 22 Tf 36 554 Td (NOCLIP \227 Arbre de navigation) Tj ET
+BT /H 10 Tf 36 533 Td (17 pages de jeu, accueil compris. R\351f\351rences : un m\352me nom d\351signe toujours la m\352me page.) Tj ET
+BT /C 9.5 Tf 13.3 TL 36 508 Td
+(ACCUEIL \(index.html\)) Tj
+T*
+(+-- Commencer -> Niveau 0 \227 Hall jaune) Tj
+T*
+(    +-- Suivre le bourdonnement -> Niveau 1 \227 Entrep\364t) Tj
+T*
+(    |   +-- Porte de service -> Niveau 2 \227 Tuyaux) Tj
+T*
+(    |   |   +-- Trappe -> Niveau 37 \227 Piscines) Tj
+T*
+(    |   |   |   +-- Plonger -> Niveau 7 \227 Oc\351an [FIN : perdu en mer]) Tj
+T*
+(    |   |   |   +-- Couloir sec -> Niveau 4 \(voir branche de Niveau 3\)) Tj
+T*
+(    |   |   +-- Ascenseur -> Niveau 5 \227 H\364tel) Tj
+T*
+(    |   |       +-- Chambre 214 -> Niveau 6 \227 Obscurit\351) Tj
+T*
+(    |   |       |   +-- Courant d\222air -> Niveau 9 \227 Banlieue) Tj
+T*
+(    |   |       |   |   +-- Maison \351clair\351e -> Sortie [FIN : retour]) Tj
+T*
+(    |   |       |   |   +-- Rue -> Niveau mort [FIN : disparition]) Tj
+T*
+(    |   |       |   +-- Bruit -> Niveau mort [FIN : disparition]) Tj
+T*
+(    |   |       +-- Escalier de service -> Niveau 4) Tj
+T*
+(    |   +-- Salle \351lectrique -> Niveau 3 \227 \311lectricit\351) Tj
+T*
+(    |       +-- Escalier -> Niveau 4 \227 Bureaux) Tj
+T*
+(    |       |   +-- Ascenseur -> Niveau 5 \(voir ci-dessus\)) Tj
+T*
+(    |       |   +-- Escalier sombre -> Niveau 6 \(voir ci-dessus\)) Tj
+T*
+(    |       +-- Ventilation -> Niveau 2 \(voir ci-dessus\)) Tj
+T*
+(    +-- Traverser le mur -> Niveau 0 int\351rieur *) Tj
+T*
+(        +-- Fissure lumineuse -> Niveau 3999 \227 Lisi\350re *) Tj
+T*
+(        |   +-- Brume -> Sortie incertaine [FIN : faux retour]) Tj
+T*
+(        |   +-- Demi-tour -> Niveau 0) Tj
+T*
+(        +-- Porte noire -> Niveau -2 \227 Vide *) Tj
+T*
+(            +-- Points lumineux -> Niveau 3999) Tj
+T*
+(            +-- Avancer au hasard -> Niveau mort [FIN : disparition]) Tj
+ET
+BT /H 8.5 Tf 36 128 Td (* Sc\350nes originales du projet : ces noms et descriptions ne sont pas des r\351f\351rences de lore v\351rifi\351es.) Tj ET
+BT /H 8.5 Tf 36 114 Td (Toutes les sc\350nes : lien NOCLIP vers index.html. Chaque fin : Rejouer vers niveau-0.html et Menu vers index.html.) Tj ET
+BT /H 8.5 Tf 36 100 Td (Accueil : Voir la carte vers arbre-navigation.html ; la carte propose un retour vers index.html.) Tj ET
+BT /H 8.5 Tf 36 86 Td (Passages entre niveaux, indices et fins adapt\351s pour le jeu. Document de conception, \340 comparer au site final.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000249 00000 n 
+0000000346 00000 n 
+0000000441 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3002
+%%EOF

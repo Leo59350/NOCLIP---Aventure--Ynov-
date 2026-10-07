@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arbre de navigation — NOCLIP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NOCLIP — Accueil">NOCLIP</a>
+    <span class="tag">Carte des chemins</span>
+  </header>
+
+  <main class="map-card">
+    <h1>NOCLIP — Arbre de navigation</h1>
+
+    <p>
+      17 pages de jeu, accueil compris. Un même nom désigne toujours
+      la même page. Les références évitent de répéter les branches.
+    </p>
+
+    <pre class="tree">
+ACCUEIL (index.html)
+└── Commencer → Niveau 0 — Hall jaune
+    ├── Suivre le bourdonnement → Niveau 1 — Entrepôt
+    │   ├── Porte de service → Niveau 2 — Tuyaux
+    │   │   ├── Trappe → Niveau 37 — Piscines
+    │   │   │   ├── Plonger → Niveau 7 — Océan [FIN : perdu en mer]
+    │   │   │   └── Couloir sec → Niveau 4 (voir branche de Niveau 3)
+    │   │   └── Ascenseur → Niveau 5 — Hôtel
+    │   │       ├── Chambre 214 → Niveau 6 — Obscurité
+    │   │       │   ├── Courant d’air → Niveau 9 — Banlieue
+    │   │       │   │   ├── Maison éclairée → Sortie [FIN : retour]
+    │   │       │   │   └── Rue → Niveau mort [FIN : disparition]
+    │   │       │   └── Bruit → Niveau mort [FIN : disparition]
+    │   │       └── Escalier de service → Niveau 4
+    │   └── Salle électrique → Niveau 3 — Électricité
+    │       ├── Escalier → Niveau 4 — Bureaux
+    │       │   ├── Ascenseur → Niveau 5 (voir ci-dessus)
+    │       │   └── Escalier sombre → Niveau 6 (voir ci-dessus)
+    │       └── Ventilation → Niveau 2 (voir ci-dessus)
+    └── Traverser le mur → Niveau 0 intérieur *
+        ├── Fissure lumineuse → Niveau 3999 — Lisière *
+        │   ├── Brume → Sortie incertaine [FIN : faux retour]
+        │   └── Demi-tour → Niveau 0
+        └── Porte noire → Niveau -2 — Vide *
+            ├── Points lumineux → Niveau 3999
+            └── Avancer au hasard → Niveau mort [FIN : disparition]
+    </pre>
+
+    <p>
+      * Scènes originales du projet : ces noms et descriptions
+      ne sont pas des références de lore vérifiées.
+    </p>
+
+    <p>
+      Toutes les scènes disposent d'un lien NOCLIP vers index.html.
+      Chaque fin propose de rejouer depuis niveau-0.html
+      ou de revenir au menu index.html.
+    </p>
+
+    <p>
+      L'accueil mène aussi à cette carte, qui propose un retour à l'accueil.
+      Les passages, indices et fins sont adaptés pour le jeu.
+    </p>
+
+    <p class="print-hide">
+      Pour créer le document PDF : Ctrl+P, puis
+      « Enregistrer au format PDF », orientation paysage.
+    </p>
+
+    <nav class="choices print-hide" aria-label="Navigation du document">
+      <a class="choice" href="index.html">
+        <span aria-hidden="true">⌂</span>
+        Retourner à l'accueil
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
